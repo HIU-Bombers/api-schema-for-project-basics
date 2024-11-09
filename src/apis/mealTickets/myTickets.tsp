@@ -22,4 +22,37 @@ namespace MyMealTickets {
     @statusCode statusCode: 401 | 403 | 500;
     @body body: Error;
   };
+
+  @post
+  @summary("食券を使用するためのトークンを発行する")
+  op getUseTicketsToken(
+    @header
+    contentType: "application/json",
+
+    @body body: {
+      @minItems(1)
+      targetMealTickets: MealTicketId[];
+    },
+  ): {
+    @statusCode statusCode: 200;
+    @body body: {
+      token: string;
+    };
+  } | {
+    @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+    @body body: Error;
+  };
+
+  @route("/use/{token}")
+  namespace Use {
+    @post
+    @summary("食券を使用する")
+    op use(@path token: string): {
+      @statusCode statusCode: 200;
+      @body body: Meal[];
+    } | {
+      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+      @body body: Error;
+    };
+  }
 }

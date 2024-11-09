@@ -21,6 +21,10 @@ enum BuyMealTicketErrors {
   InvalidBuyAmount,
 }
 
+enum UseMealTicketErrors {
+  NotAvaliable,
+}
+
 enum ErrorCode {
   ...GeneralErros,
   ...MealErrors,
