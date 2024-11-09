@@ -16,10 +16,16 @@ enum MealTicketErrors {
   InvalidStocks,
 }
 
+enum BuyMealTicketErrors {
+  OutOfStock,
+  InvalidBuyAmount,
+}
+
 enum ErrorCode {
   ...GeneralErros,
   ...MealErrors,
   ...MealTicketErrors,
+  ...BuyMealTicketErrors,
 }
 
 @error

@@ -1,8 +1,9 @@
 import "@typespec/http";
 import "@typespec/rest";
-import "../models/jsonPatch.tsp";
-import "../models/meal.tsp";
-import "../models/errors.tsp";
+import "../../models/jsonPatch.tsp";
+import "../../models/errors.tsp";
+import "../../models/meal.tsp";
+import "../../models/mealTicket.tsp";
 
 @service
 namespace ProjectBasics;
@@ -42,7 +43,7 @@ namespace MealTickets {
   namespace PerElement {
     @get
     @summary("食券の詳細を返す")
-    op getMealTicket(@path mealTicketId: string): {
+    op getMealTicket(@path mealTicketId: MealTicketId): {
       @statusCode statusCode: 200;
       @body body: MealTicket;
     } | {
@@ -54,7 +55,7 @@ namespace MealTickets {
     @summary("食券を更新する")
     op updateMealTicket(
       @header contentType: "application/json-patch+json",
-      @path mealTicketId: string,
+      @path mealTicketId: MealTicketId,
       @body body: JsonPatch,
     ): {
       @statusCode statusCode: 200;
@@ -66,7 +67,7 @@ namespace MealTickets {
 
     @delete
     @summary("食券を削除する")
-    op deleteMealTicket(@path mealTicketId: string): {
+    op deleteMealTicket(@path mealTicketId: MealTicketId): {
       @statusCode statusCode: 204;
     } | {
       @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
