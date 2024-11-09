@@ -26,7 +26,7 @@ model MealTicket {
   price: int32;
 
   @minValue(0)
-  stocks: int32;
+  avaliable_stocks: int32;
 
   /**
    * 販売日。
