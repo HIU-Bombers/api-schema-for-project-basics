@@ -2,6 +2,7 @@ import "@typespec/openapi";
 import "@typespec/http";
 import "@typespec/rest";
 import "./apis/meals.tsp";
+import "./apis/mealTickets.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.Rest;

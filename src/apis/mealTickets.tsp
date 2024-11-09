@@ -1,0 +1,76 @@
+import "@typespec/http";
+import "@typespec/rest";
+import "../models/jsonPatch.tsp";
+import "../models/meal.tsp";
+import "../models/errors.tsp";
+
+@service
+namespace ProjectBasics;
+
+using TypeSpec.Http;
+using TypeSpec.Rest;
+
+@tag("MealTickets")
+@route("/meal-tickets")
+namespace MealTickets {
+  @get
+  @summary("登録された食券の一覧を返す")
+  op mealTickets(): {
+    @statusCode statusCode: 200;
+    @body body: MealTicket[];
+  } | {
+    @statusCode statusCode: 500;
+    @body body: Error;
+  };
+
+  @post
+  @summary("食券を登録する")
+  op create(
+    @header
+    contentType: "application/json",
+
+    @body body: MealTicket,
+  ): {
+    @statusCode statusCode: 201;
+    @body body: MealTicket;
+  } | {
+    @statusCode statusCode: 400 | 401 | 403 | 500;
+    @body body: Error;
+  };
+
+  @route("/{mealTicketId}")
+  namespace PerElement {
+    @get
+    @summary("食券の詳細を返す")
+    op getMealTicket(@path mealTicketId: string): {
+      @statusCode statusCode: 200;
+      @body body: MealTicket;
+    } | {
+      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+      @body body: Error;
+    };
+
+    @patch
+    @summary("食券を更新する")
+    op updateMealTicket(
+      @header contentType: "application/json-patch+json",
+      @path mealTicketId: string,
+      @body body: JsonPatch,
+    ): {
+      @statusCode statusCode: 200;
+      @body body: MealTicket;
+    } | {
+      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+      @body body: Error;
+    };
+
+    @delete
+    @summary("食券を削除する")
+    op deleteMealTicket(@path mealTicketId: string): {
+      @statusCode statusCode: 204;
+    } | {
+      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+      @body body: Error;
+    };
+  }
+}
