@@ -1,6 +1,5 @@
 import "@typespec/http";
 import "@typespec/rest";
-import "../../models/jsonPatch.tsp";
 import "../../models/errors.tsp";
 import "../../models/meal.tsp";
 import "../../models/mealTicket.tsp";

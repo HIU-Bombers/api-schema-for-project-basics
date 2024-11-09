@@ -34,6 +34,6 @@ model MyMealTicket {
   @visibility("read")
   id: MyMealTicketId;
 
-  mealTicket: MealTicketId;
+  mealTicket: MealTicket;
   amount: int32;
 }
