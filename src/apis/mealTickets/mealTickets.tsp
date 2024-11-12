@@ -56,7 +56,7 @@ namespace MealTickets {
     op updateMealTicket(
       @header contentType: "application/json-patch+json",
       @path mealTicketId: MealTicketId,
-      @body body: JsonPatch,
+      @body body: JsonPatch[],
     ): {
       @statusCode statusCode: 200;
       @body body: MealTicket;

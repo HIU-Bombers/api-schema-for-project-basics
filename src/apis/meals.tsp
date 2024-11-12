@@ -55,7 +55,7 @@ namespace Meals {
     op updateMeal(
       @header contentType: "application/json-patch+json",
       @path mealId: string,
-      @body body: JsonPatch,
+      @body body: JsonPatch[],
     ): {
       @statusCode statusCode: 200;
       @body body: Meal;
