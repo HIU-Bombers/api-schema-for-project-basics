@@ -37,6 +37,7 @@ namespace MyMealTickets {
     @statusCode statusCode: 200;
     @body body: {
       token: string;
+      expires_at: utcDateTime;
     };
   } | {
     @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
