@@ -1,6 +1,5 @@
 import "@typespec/http";
 import "@typespec/rest";
-import "../../models/jsonPatch.tsp";
 import "../../models/errors.tsp";
 import "../../models/meal.tsp";
 import "../../models/mealTicket.tsp";
@@ -56,7 +55,24 @@ namespace MealTickets {
     op updateMealTicket(
       @header contentType: "application/json-patch+json",
       @path mealTicketId: MealTicketId,
-      @body body: JsonPatch[],
+      @body body: {
+        mealId?: MealId;
+
+        @minValue(1)
+        price?: int32;
+
+        /**
+         * 販売可能な食券の数
+         */
+        @minValue(0)
+        avaliable_stocks?: int32;
+
+        /**
+         * 販売日
+         * `sales_at` が null の場合は、販売数を上回らない限り常に販売する食券として扱われます。
+         */
+        sales_at?: utcDateTime;
+      },
     ): {
       @statusCode statusCode: 200;
       @body body: MealTicket;

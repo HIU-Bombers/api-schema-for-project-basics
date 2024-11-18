@@ -1,6 +1,5 @@
 import "@typespec/http";
 import "@typespec/rest";
-import "../models/jsonPatch.tsp";
 import "../models/meal.tsp";
 import "../models/errors.tsp";
 
@@ -50,12 +49,24 @@ namespace Meals {
       @body body: Error;
     };
 
+    /**
+     * 食事を更新するためのエンドポイント。
+     *
+     * 更新をしたいフィールドのエンドポイントのみを body の key を指定してください。
+     */
     @patch
     @summary("食事を更新する")
     op updateMeal(
       @header contentType: "application/json-patch+json",
       @path mealId: string,
-      @body body: JsonPatch[],
+      @body body: {
+        @minLength(1)
+        @example("カレー")
+        name?: string;
+
+        @minLength(1)
+        description?: string;
+      },
     ): {
       @statusCode statusCode: 200;
       @body body: Meal;
