@@ -11,7 +11,7 @@ using TypeSpec.Http;
 using TypeSpec.Rest;
 
 @tag("MyTickets")
-@route("meal-tickets/mine")
+@route("meal-tickets/me")
 namespace MyMealTickets {
   @get
   @summary("購入済みかつ使用可能な食券一覧を返す")
