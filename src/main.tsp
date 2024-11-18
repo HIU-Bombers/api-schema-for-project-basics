@@ -4,6 +4,7 @@ import "@typespec/rest";
 import "./apis/meals.tsp";
 import "./apis/mealTickets/definitions.tsp";
 import "./apis/users.tsp";
+import "./apis/authorization.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.Rest;
