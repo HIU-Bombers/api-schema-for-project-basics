@@ -50,7 +50,7 @@ namespace MyMealTickets {
     @summary("食券を使用する")
     op use(@path token: string): {
       @statusCode statusCode: 200;
-      @body body: Meal[];
+      @body body: MealTicket[];
     } | {
       @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
       @body body: Error;
