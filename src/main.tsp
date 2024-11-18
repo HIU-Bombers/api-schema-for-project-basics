@@ -3,6 +3,7 @@ import "@typespec/http";
 import "@typespec/rest";
 import "./apis/meals.tsp";
 import "./apis/mealTickets/definitions.tsp";
+import "./apis/users.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.Rest;
