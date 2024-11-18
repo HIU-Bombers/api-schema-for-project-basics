@@ -49,5 +49,5 @@ model MyMealTicket {
   id: MyMealTicketId;
 
   mealTicket: MealTicket;
-  amount: int32;
+  expires_at: utcDateTime;
 }
