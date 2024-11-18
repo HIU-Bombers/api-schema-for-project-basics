@@ -50,4 +50,35 @@ namespace Users {
       @body body: Error;
     };
   }
+
+  @route("/sessions")
+  namespace Sessions {
+    @post
+    @summary("セッションを開始する")
+    op create(): {
+      @statusCode statusCode: 200;
+
+      /**
+       * `PROJECT_BASICS__SESSION_ID` という名前の Cookie に24時間有効なセッション ID を設定します。
+       */
+      @header SetCookie: string;
+    } | {
+      @statusCode statusCode: 401 | 500;
+      @body body: Error;
+    };
+
+    @delete
+    @summary("セッションを終了する")
+    op delete(): {
+      @statusCode statusCode: 200;
+
+      /**
+       * `PROJECT_BASICS__SESSION_ID` という名前の Cookie に24時間有効なセッション ID を削除します。
+       */
+      @header SetCookie: string;
+    } | {
+      @statusCode statusCode: 401 | 500;
+      @body body: Error;
+    };
+  }
 }
