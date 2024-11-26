@@ -9,7 +9,7 @@ model MealTicket {
   @visibility("read")
   id: MealTicketId;
 
-  mealId: MealId;
+  meal_id: MealId;
 
   @minValue(1)
   price: int32;
