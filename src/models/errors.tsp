@@ -25,11 +25,19 @@ enum UseMealTicketErrors {
   NotAvaliable,
 }
 
+enum UserErrors {
+  InvalidEmail,
+  PasswordTooShort,
+  UserAlreadyExists
+}
+
 enum ErrorCode {
   ...GeneralErros,
   ...MealErrors,
   ...MealTicketErrors,
   ...BuyMealTicketErrors,
+  ...UseMealTicketErrors,
+  ...UserErrors,
 }
 
 @error
