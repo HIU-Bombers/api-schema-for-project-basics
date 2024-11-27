@@ -11,20 +11,20 @@ using TypeSpec.Http;
 using TypeSpec.Rest;
 
 @tag("BuyMealTickets")
-@route("meal-tickets/{mealTicketId}/buy")
+@route("meal-tickets/buy")
 namespace BuyMealTickets {
   @post
   @summary("食券を購入する")
   op buy(
-    @path mealTicketId: MealTicketId,
-
     @header
     contentType: "application/json",
 
     @body body: {
+      meal_ticket_id: MealTicketId; 
+
       @minValue(1)
       amount: int32;
-    },
+    }[],
   ): {
     @statusCode statusCode: 200;
     @body body: MyMealTicket;
@@ -35,8 +35,9 @@ namespace BuyMealTickets {
 
   @delete
   @summary("食券の購入を取り消す")
-  op cancel(@path mealTicketId: MyMealTicketId): {
+  op cancel(): {
     @statusCode statusCode: 204;
+    @body body: MealTicketId[];
   } | {
     @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
     @body body: Error;
