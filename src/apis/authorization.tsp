@@ -14,7 +14,10 @@ namespace Authorization {
   @route("/signin")
   @summary("サインインする")
   @post
-  op signin(): {
+  op signin(@body body: {
+    email: string;
+    password: string;
+  }): {
     @statusCode statusCode: 200;
 
     /**
