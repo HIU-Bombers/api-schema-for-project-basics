@@ -13,6 +13,6 @@ using TypeSpec.OpenAPI;
 @service({
   title: "API schema for project basics",
 })
-@server("http://localhost/", "development")
+@server("http://localhost:9000/", "development")
 @useAuth(BearerAuth)
 namespace ProjectBasics;
