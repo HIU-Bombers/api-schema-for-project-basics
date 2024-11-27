@@ -13,4 +13,9 @@ model Meal {
 
   @minLength(1)
   description?: string;
+
+  /**
+   * 食品の画像イメージ
+   */
+  image?: bytes;
 }
