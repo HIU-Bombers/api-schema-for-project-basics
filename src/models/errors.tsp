@@ -33,8 +33,11 @@ enum ErrorCode {
 }
 
 @error
-@example(#{ errorCode: ErrorCode.EmptyMealName, reason: "Meal name is empty." })
+@example(#{
+  error_code: ErrorCode.EmptyMealName,
+  reason: "Meal name is empty.",
+})
 model Error {
-  errorCode: ErrorCode;
+  error_code: ErrorCode;
   reason: string;
 }
