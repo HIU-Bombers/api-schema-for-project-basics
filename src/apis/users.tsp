@@ -12,6 +12,9 @@ using TypeSpec.Rest;
 @tag("Users")
 @route("/users")
 namespace Users {
+  /**
+   * 作成したユーザーが見つからない場合に 404 を返すことがあります。
+   */
   @summary("ユーザーを新規作成する")
   @post
   op create(
@@ -23,7 +26,7 @@ namespace Users {
     @statusCode statusCode: 201;
     @body body: User;
   } | {
-    @statusCode statusCode: 400 | 409 | 500;
+    @statusCode statusCode: 400 | 404 | 409 | 500;
     @body body: Error;
   };
 
