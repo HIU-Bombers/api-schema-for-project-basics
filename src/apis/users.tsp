@@ -23,7 +23,7 @@ namespace Users {
     @statusCode statusCode: 201;
     @body body: User;
   } | {
-    @statusCode statusCode: 400 | 500;
+    @statusCode statusCode: 400 | 409 | 500;
     @body body: Error;
   };
 
