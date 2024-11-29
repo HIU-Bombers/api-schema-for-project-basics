@@ -55,5 +55,15 @@ namespace MyMealTickets {
       @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
       @body body: Error;
     };
+
+    @delete
+    @summary("食券の使用を取り消す")
+    op cancel(@path token: string): {
+      @statusCode statusCode: 200;
+      @body body: MealTicket[];
+    } | {
+      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+      @body body: Error;
+    };
   }
 }
