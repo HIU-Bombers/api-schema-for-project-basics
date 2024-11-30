@@ -27,7 +27,7 @@ namespace BuyMealTickets {
     }[],
   ): {
     @statusCode statusCode: 200;
-    @body body: MyMealTicket;
+    @body body: MyMealTicket[];
   } | {
     @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
     @body body: Error;
