@@ -18,7 +18,7 @@ model MealTicket {
    * 販売可能な食券の数
    */
   @minValue(0)
-  avaliable_stocks: int32;
+  available_stocks: int32;
 
   /**
    * 販売日

@@ -22,7 +22,7 @@ enum BuyMealTicketErrors {
 }
 
 enum UseMealTicketErrors {
-  NotAvaliable,
+  NotAvailable,
 }
 
 enum UserErrors {
