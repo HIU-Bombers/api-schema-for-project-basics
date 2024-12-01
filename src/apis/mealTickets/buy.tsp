@@ -37,7 +37,7 @@ namespace BuyMealTickets {
   @summary("食券の購入を取り消す")
   op cancel(): {
     @statusCode statusCode: 204;
-    @body body: MealTicketId[];
+    @body body: MyMealTicketId[];
   } | {
     @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
     @body body: Error;
