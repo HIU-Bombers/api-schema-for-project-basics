@@ -29,10 +29,8 @@ namespace MyMealTickets {
     @header
     contentType: "application/json",
 
-    @body body: {
-      @minItems(1)
-      targetMealTickets: MealTicketId[];
-    },
+    @minItems(1)
+    @body body: MyMealTicketId[],
   ): {
     @statusCode statusCode: 200;
     @body body: {
