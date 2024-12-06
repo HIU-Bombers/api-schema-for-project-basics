@@ -42,11 +42,13 @@ namespace MyMealTickets {
     @body body: Error;
   };
 
-  @route("/use/{token}")
+  @route("/use")
   namespace Use {
     @post
     @summary("食券を使用する")
-    op use(@path token: string): {
+    op use(@body body: {
+      token: string;
+    }): {
       @statusCode statusCode: 200;
       @body body: MealTicket[];
     } | {
@@ -56,7 +58,9 @@ namespace MyMealTickets {
 
     @delete
     @summary("食券の使用を取り消す")
-    op cancel(@path token: string): {
+    op cancel(@body body: {
+      token: string;
+    }): {
       @statusCode statusCode: 200;
       @body body: MealTicket[];
     } | {
