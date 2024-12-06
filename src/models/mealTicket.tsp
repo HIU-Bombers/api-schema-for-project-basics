@@ -39,20 +39,6 @@ model MealTicket {
   sales_at?: utcDateTime;
 }
 
-model Statistics {
-  /**
-   * 食券自体の販売数
-   */
-  @minValue(0)
-  sales_figures: int32;
-
-  /**
-   * 食券の使用数
-   */
-  @minValue(0)
-  usage: int32;
-}
-
 @format("uuid")
 scalar MyMealTicketId extends string;
 
