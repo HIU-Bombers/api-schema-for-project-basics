@@ -29,19 +29,4 @@ namespace Users {
     @statusCode statusCode: 400 | 404 | 409 | 500;
     @body body: Error;
   };
-
-  @route("/{userId}")
-  namespace PerElement {
-    @summary("ユーザーのロールを変更する")
-    @patch
-    op updateUserRole(@path userId: UserId): {
-      @statusCode statusCode: 200;
-      @body body: {
-        role: Role;
-      };
-    } | {
-      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
-      @body body: Error;
-    };
-  }
 }
