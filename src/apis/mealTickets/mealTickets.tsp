@@ -67,6 +67,8 @@ namespace MealTickets {
         @minValue(0)
         available_stocks?: int32;
 
+        kind: MealKind;
+
         /**
          * 販売日
          * `sales_at` が null の場合は、販売数を上回らない限り常に販売する食券として扱われます。
