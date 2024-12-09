@@ -43,14 +43,5 @@ namespace Users {
       @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
       @body body: Error;
     };
-
-    @summary("ユーザーを削除する")
-    @delete
-    op delete(@path userId: UserId): {
-      @statusCode stausCode: 204;
-    } | {
-      @statusCode statusCode: 401 | 403 | 404 | 500;
-      @body body: Error;
-    };
   }
 }
