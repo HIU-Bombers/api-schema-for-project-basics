@@ -36,7 +36,7 @@ model MealTicket {
    * 販売日
    * `sales_at` が null の場合は、販売数を上回らない限り常に販売する食券として扱われます。
    */
-  sales_at?: utcDateTime;
+  sales_at?: plainDate;
 }
 
 @format("uuid")
