@@ -29,7 +29,14 @@ namespace MealTickets {
     @header
     contentType: "application/json",
 
-    @body body: MealTicket,
+    @body body: {
+      meal_id: MealId;
+      @minValue(1)
+      price: int32;
+      @minValue(0)
+      available_stocks: int32;
+      sales_at: plainDate;
+    },
   ): {
     @statusCode statusCode: 201;
     @body body: MealTicket;
