@@ -57,15 +57,16 @@ namespace Meals {
     @patch
     @summary("食事を更新する")
     op updateMeal(
-      @header contentType: "application/json-patch+json",
+      @header contentType: "application/json",
       @path mealId: string,
       @body body: {
-        @minLength(1)
         @example("カレー")
         name?: string;
 
-        @minLength(1)
         description?: string;
+
+        kind?: MealKind;
+        meal_image?: string;
       },
     ): {
       @statusCode statusCode: 200;

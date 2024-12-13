@@ -60,7 +60,7 @@ namespace MealTickets {
     @patch
     @summary("食券を更新する")
     op updateMealTicket(
-      @header contentType: "application/json-patch+json",
+      @header contentType: "application/json",
       @path mealTicketId: MealTicketId,
       @body body: {
         mealId?: MealId;
@@ -73,8 +73,6 @@ namespace MealTickets {
          */
         @minValue(0)
         available_stocks?: int32;
-
-        kind: MealKind;
 
         /**
          * 販売日
