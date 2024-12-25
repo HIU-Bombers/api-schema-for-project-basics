@@ -5,8 +5,7 @@ scalar MealId extends string;
 
 enum MealKind {
   OTHER,
-  SET,
-  BOWL,
+  DAILY,
   CURRY,
   RAMEN,
   SOBA,
