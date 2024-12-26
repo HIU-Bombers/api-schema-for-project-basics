@@ -7,7 +7,7 @@ scalar MealTicketId extends string;
 
 model MealTicket {
   @visibility("read")
-  id: Meal,
+  meal: Meal;
 
   meal_id: MealId;
 
